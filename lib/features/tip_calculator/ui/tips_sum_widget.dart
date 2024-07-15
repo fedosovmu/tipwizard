@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tipwizard/features/common/my_fonts.dart';
+import 'package:tipwizard/features/people_buttons/logic/people_buttons_state_holder.dart';
 import 'package:tipwizard/features/tip_calculator/logic/tips_state_holder.dart';
 
 class TipsSumWidget extends ConsumerWidget {
@@ -8,8 +9,20 @@ class TipsSumWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final peopleButtonsState = ref.watch(peopleButtonsStateHolderProvider);
+    final people = peopleButtonsState.people;
     final tipsState = ref.watch(tipsStateHolderProvider);
     final tips = tipsState.tips;
+    String message = '';
+    if (tips == null) {
+      message = 'Enter bill, percentage and people';
+    } else {
+      if (people == 1) {
+        message = 'Sum to pay';
+      } else {
+        message = 'Sum to pay per person';
+      }
+    }
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -20,7 +33,7 @@ class TipsSumWidget extends ConsumerWidget {
             style: MyFonts.h1,
           ),
           Text(
-            tips != null ? 'Sum to pay' : 'Enter bill, percentage and people',
+            message,
             style: MyFonts.h3,
           ),
         ],
