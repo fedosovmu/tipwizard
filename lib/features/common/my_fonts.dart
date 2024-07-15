@@ -17,4 +17,9 @@ class MyFonts {
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
+
+  static const h4 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
 }

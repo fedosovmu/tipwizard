@@ -8,24 +8,44 @@ class TipButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        MyButton(
-          onTap: () {},
+        Expanded(
+          flex: 2,
+          child: MyButton(
+            onTap: () {},
+            title: '3%',
+          ),
         ),
         const SizedBox(width: 6),
-        MyButton(
-          onTap: () {},
+        Expanded(
+          flex: 2,
+          child: MyButton(
+            onTap: () {},
+            title: '5%',
+          ),
         ),
         const SizedBox(width: 6),
-        MyButton(
-          onTap: () {},
+        Expanded(
+          flex: 2,
+          child: MyButton(
+            onTap: () {},
+            title: '10%',
+          ),
         ),
         const SizedBox(width: 6),
-        MyButton(
-          onTap: () {},
+        Expanded(
+          flex: 2,
+          child: MyButton(
+            onTap: () {},
+            title: '15%',
+          ),
         ),
         const SizedBox(width: 6),
-        MyButton(
-          onTap: () {},
+        Expanded(
+          flex: 3,
+          child: MyButton(
+            onTap: () {},
+            title: 'Custom',
+          ),
         ),
       ],
     );
