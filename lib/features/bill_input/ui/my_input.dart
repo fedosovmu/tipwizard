@@ -11,6 +11,7 @@ class MyInput extends ConsumerWidget {
     return TextField(
       onChanged: billManager.onInputChanged,
       autofocus: true,
+      keyboardType: TextInputType.number,
     );
   }
 }
