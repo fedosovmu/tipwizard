@@ -1,52 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tipwizard/features/common/my_button.dart';
+import 'package:tipwizard/features/common/separator_extension.dart';
+import 'package:tipwizard/features/people_buttons/logic/people_buttons_manager.dart';
+import 'package:tipwizard/features/people_buttons/logic/people_buttons_state_holder.dart';
 
-class PeopleButtons extends StatelessWidget {
+class PeopleButtons extends ConsumerWidget {
   const PeopleButtons({super.key});
 
+  static const _peopleCounts = [1, 2, 3, 4, 5];
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final peopleButtonsManager = ref.watch(peopleButtonsManagerProvider);
+    final peopleButtonsState = ref.watch(peopleButtonsStateHolderProvider);
+    final selectedTab = peopleButtonsState.selectedTab;
     return Row(
       children: [
-        Expanded(
-          flex: 2,
-          child: MyButton(
-            onTap: () {},
-            title: '1',
-          ),
-        ),
-        const SizedBox(width: 6),
-        Expanded(
-          flex: 2,
-          child: MyButton(
-            onTap: () {},
-            title: '2',
-          ),
-        ),
-        const SizedBox(width: 6),
-        Expanded(
-          flex: 2,
-          child: MyButton(
-            onTap: () {},
-            title: '3',
-          ),
-        ),
-        const SizedBox(width: 6),
-        Expanded(
-          flex: 2,
-          child: MyButton(
-            onTap: () {},
-            title: '4',
-          ),
-        ),
-        const SizedBox(width: 6),
-        Expanded(
-          flex: 2,
-          child: MyButton(
-            onTap: () {},
-            title: '5',
-          ),
-        ),
+        ...List.generate(5, (index) {
+          return Expanded(
+            flex: 2,
+            child: MyButton(
+              onTap: () =>
+                  peopleButtonsManager.select(index, _peopleCounts[index]),
+              title: '${_peopleCounts[index]}',
+              isSelected: selectedTab == index,
+            ),
+          );
+        }).separate<Widget>(const SizedBox(width: 6)),
       ],
     );
   }
