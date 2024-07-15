@@ -10,6 +10,7 @@ class MyInput extends ConsumerWidget {
     final billManager = ref.watch(billManagerProvider);
     return TextField(
       onChanged: billManager.onInputChanged,
+      autofocus: true,
     );
   }
 }
