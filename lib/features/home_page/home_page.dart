@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tipwizard/features/home_page/ui/my_fonts.dart';
+import 'package:tipwizard/features/common/my_button.dart';
+import 'package:tipwizard/features/common/my_fonts.dart';
 import 'package:tipwizard/features/home_page/ui/my_input.dart';
+import 'package:tipwizard/features/tip_buttons/tip_buttons.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,8 +14,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
-          'Tips calculator',
+          'Tips Wizard',
+          style: MyFonts.h3,
         ),
+        centerTitle: true,
       ),
       body: SizedBox.expand(
         child: Padding(
@@ -35,6 +39,8 @@ class HomePage extends StatelessWidget {
                 'Tip percentage',
                 style: MyFonts.h3,
               ),
+              SizedBox(height: 8),
+              TipButtons(),
               SizedBox(height: 16),
               const Text(
                 'People',
