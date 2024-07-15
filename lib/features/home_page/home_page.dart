@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tipwizard/features/common/my_fonts.dart';
-import 'package:tipwizard/features/home_page/ui/my_input.dart';
+import 'package:tipwizard/features/bill_input/ui/my_input.dart';
 import 'package:tipwizard/features/people_buttons/people_buttons.dart';
 import 'package:tipwizard/features/tip_buttons/tip_buttons.dart';
 import 'package:tipwizard/features/tip_calculator/ui/tips_sum_widget.dart';
@@ -19,9 +19,9 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SizedBox.expand(
+      body: const SizedBox.expand(
         child: Padding(
-          padding: const EdgeInsets.only(
+          padding: EdgeInsets.only(
             left: 16,
             right: 16,
             top: 24,
@@ -29,20 +29,20 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Text(
+              Text(
                 'Bill',
                 style: MyFonts.h3,
               ),
-              const MyInput(),
+              MyInput(),
               SizedBox(height: 16),
-              const Text(
+              Text(
                 'Tip percentage',
                 style: MyFonts.h3,
               ),
               SizedBox(height: 8),
               TipButtons(),
               SizedBox(height: 16),
-              const Text(
+              Text(
                 'People',
                 style: MyFonts.h3,
               ),
