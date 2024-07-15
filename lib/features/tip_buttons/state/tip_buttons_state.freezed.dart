@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TipButtonsState {
   int? get selectedTab => throw _privateConstructorUsedError;
+  int? get percent => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TipButtonsStateCopyWith<TipButtonsState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $TipButtonsStateCopyWith<$Res> {
           TipButtonsState value, $Res Function(TipButtonsState) then) =
       _$TipButtonsStateCopyWithImpl<$Res, TipButtonsState>;
   @useResult
-  $Res call({int? selectedTab});
+  $Res call({int? selectedTab, int? percent});
 }
 
 /// @nodoc
@@ -46,11 +47,16 @@ class _$TipButtonsStateCopyWithImpl<$Res, $Val extends TipButtonsState>
   @override
   $Res call({
     Object? selectedTab = freezed,
+    Object? percent = freezed,
   }) {
     return _then(_value.copyWith(
       selectedTab: freezed == selectedTab
           ? _value.selectedTab
           : selectedTab // ignore: cast_nullable_to_non_nullable
+              as int?,
+      percent: freezed == percent
+          ? _value.percent
+          : percent // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -64,7 +70,7 @@ abstract class _$$TipButtonsStateImplCopyWith<$Res>
       __$$TipButtonsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? selectedTab});
+  $Res call({int? selectedTab, int? percent});
 }
 
 /// @nodoc
@@ -79,11 +85,16 @@ class __$$TipButtonsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedTab = freezed,
+    Object? percent = freezed,
   }) {
     return _then(_$TipButtonsStateImpl(
       selectedTab: freezed == selectedTab
           ? _value.selectedTab
           : selectedTab // ignore: cast_nullable_to_non_nullable
+              as int?,
+      percent: freezed == percent
+          ? _value.percent
+          : percent // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -92,14 +103,16 @@ class __$$TipButtonsStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TipButtonsStateImpl implements _TipButtonsState {
-  const _$TipButtonsStateImpl({this.selectedTab});
+  const _$TipButtonsStateImpl({this.selectedTab, this.percent});
 
   @override
   final int? selectedTab;
+  @override
+  final int? percent;
 
   @override
   String toString() {
-    return 'TipButtonsState(selectedTab: $selectedTab)';
+    return 'TipButtonsState(selectedTab: $selectedTab, percent: $percent)';
   }
 
   @override
@@ -108,11 +121,12 @@ class _$TipButtonsStateImpl implements _TipButtonsState {
         (other.runtimeType == runtimeType &&
             other is _$TipButtonsStateImpl &&
             (identical(other.selectedTab, selectedTab) ||
-                other.selectedTab == selectedTab));
+                other.selectedTab == selectedTab) &&
+            (identical(other.percent, percent) || other.percent == percent));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedTab);
+  int get hashCode => Object.hash(runtimeType, selectedTab, percent);
 
   @JsonKey(ignore: true)
   @override
@@ -123,11 +137,13 @@ class _$TipButtonsStateImpl implements _TipButtonsState {
 }
 
 abstract class _TipButtonsState implements TipButtonsState {
-  const factory _TipButtonsState({final int? selectedTab}) =
+  const factory _TipButtonsState({final int? selectedTab, final int? percent}) =
       _$TipButtonsStateImpl;
 
   @override
   int? get selectedTab;
+  @override
+  int? get percent;
   @override
   @JsonKey(ignore: true)
   _$$TipButtonsStateImplCopyWith<_$TipButtonsStateImpl> get copyWith =>

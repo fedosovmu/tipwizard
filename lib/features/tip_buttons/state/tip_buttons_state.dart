@@ -6,5 +6,6 @@ part 'tip_buttons_state.freezed.dart';
 class TipButtonsState with _$TipButtonsState {
   const factory TipButtonsState({
     int? selectedTab,
+    int? percent,
   }) = _TipButtonsState;
 }

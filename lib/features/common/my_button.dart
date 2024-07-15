@@ -20,15 +20,21 @@ class MyButton extends StatelessWidget {
     return MyPressableBuilder(
       onTap: onTap,
       builder: (context, pressed) {
-        return Container(
+        Color borderColor = isSelected ? MyColors.blue400 : MyColors.grey200;
+        Color bgColor = isSelected ? MyColors.blue100 : MyColors.white;
+        if (pressed) {
+          bgColor = MyColors.blue300;
+        }
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 100),
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: MyColors.grey200,
+              color: borderColor,
             ),
-            color: isSelected ? Colors.red : MyColors.white,
+            color: bgColor,
           ),
           child: Center(
             child: Text(

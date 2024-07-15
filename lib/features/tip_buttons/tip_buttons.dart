@@ -8,7 +8,7 @@ import 'package:tipwizard/features/tip_buttons/logic/tip_buttons_state_holder.da
 class TipButtons extends ConsumerWidget {
   const TipButtons({super.key});
 
-  static const _percents = ['3%', '5%', '10%', '15%', '20%'];
+  static const _percents = [3, 5, 10, 15, 20];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,8 +21,8 @@ class TipButtons extends ConsumerWidget {
           return Expanded(
             flex: 2,
             child: MyButton(
-              onTap: () => tipButtonsManager.select(index),
-              title: _percents[index],
+              onTap: () => tipButtonsManager.select(index, _percents[index]),
+              title: '${_percents[index]}%',
               isSelected: selectedTap == index,
             ),
           );

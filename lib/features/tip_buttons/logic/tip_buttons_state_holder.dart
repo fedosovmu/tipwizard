@@ -14,4 +14,10 @@ class TipButtonsStateHolder extends StateNotifier<TipButtonsState> {
   set selectedTab(int? value) => state = state.copyWith(
         selectedTab: value,
       );
+
+  int? get percent => state.percent;
+
+  set percent(int? value) => state = state.copyWith(
+        percent: value,
+      );
 }

@@ -12,7 +12,8 @@ class TipButtonsManager {
 
   TipButtonsManager(this._tipButtonsStateHolder);
 
-  void select(int tabIndex) {
+  void select(int tabIndex, int percent) {
     _tipButtonsStateHolder.selectedTab = tabIndex;
+    _tipButtonsStateHolder.percent = percent;
   }
 }
