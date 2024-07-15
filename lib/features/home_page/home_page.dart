@@ -3,6 +3,7 @@ import 'package:tipwizard/features/common/my_fonts.dart';
 import 'package:tipwizard/features/home_page/ui/my_input.dart';
 import 'package:tipwizard/features/people_buttons/people_buttons.dart';
 import 'package:tipwizard/features/tip_buttons/tip_buttons.dart';
+import 'package:tipwizard/features/tip_calculator/ui/tips_sum_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,22 +49,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 8),
               PeopleButtons(),
               SizedBox(height: 56),
-              SizedBox(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      '\$100',
-                      style: MyFonts.h1,
-                    ),
-                    Text(
-                      'Sum to pay',
-                      style: MyFonts.h3,
-                    ),
-                  ],
-                ),
-              )
+              TipsSumWidget(),
             ],
           ),
         ),
