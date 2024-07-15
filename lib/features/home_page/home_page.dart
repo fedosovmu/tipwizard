@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:tipwizard/features/common/my_button.dart';
 import 'package:tipwizard/features/common/my_fonts.dart';
 import 'package:tipwizard/features/home_page/ui/my_input.dart';
+import 'package:tipwizard/features/puople_buttons/people_buttons.dart';
 import 'package:tipwizard/features/tip_buttons/tip_buttons.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,6 +47,8 @@ class HomePage extends StatelessWidget {
                 'People',
                 style: MyFonts.h3,
               ),
+              SizedBox(height: 8),
+              PeopleButtons(),
               SizedBox(height: 56),
               SizedBox(
                 width: double.infinity,
