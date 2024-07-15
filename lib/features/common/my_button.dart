@@ -6,10 +6,12 @@ import 'package:tipwizard/features/common/my_pressable_builder.dart';
 class MyButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
+  final bool isSelected;
 
   const MyButton({
     required this.onTap,
     required this.title,
+    this.isSelected = false,
     super.key,
   });
 
@@ -26,7 +28,7 @@ class MyButton extends StatelessWidget {
             border: Border.all(
               color: MyColors.grey200,
             ),
-            color: MyColors.white,
+            color: isSelected ? Colors.red : MyColors.white,
           ),
           child: Center(
             child: Text(

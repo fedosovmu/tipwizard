@@ -11,5 +11,5 @@ class MyColors {
   static const grey200 = Color(0xFFEBE8E3);
 
   static const blue100 = Color(0xFF);
-  static const blue400 = Color(0xFF);
+  static const blue400 = Color(0xFF5158FF);
 }

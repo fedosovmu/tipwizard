@@ -41,10 +41,10 @@ class PeopleButtons extends StatelessWidget {
         ),
         const SizedBox(width: 6),
         Expanded(
-          flex: 3,
+          flex: 2,
           child: MyButton(
             onTap: () {},
-            title: 'Custom',
+            title: '5',
           ),
         ),
       ],
