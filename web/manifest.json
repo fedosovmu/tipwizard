@@ -1,6 +1,6 @@
 {
-    "name": "tipwizard",
-    "short_name": "tipwizard",
+    "name": "Tip Wizard",
+    "short_name": "Tip Wizard",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
