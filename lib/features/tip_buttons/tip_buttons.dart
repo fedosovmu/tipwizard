@@ -17,6 +17,13 @@ class TipButtons extends ConsumerWidget {
     final tipButtonsManager = ref.watch(tipButtonsManagerProvider);
     final tipButtonsState = ref.watch(tipButtonsStateHolderProvider);
     final selectedTap = tipButtonsState.selectedTab;
+
+    String customText = '';
+    if (selectedTap == 5) {
+      customText += '\n';
+      customText += tipButtonsState.percent.toString();
+    }
+
     return Row(
       children: [
         ...List.generate(5, (index) {
@@ -39,7 +46,7 @@ class TipButtons extends ConsumerWidget {
                 tipButtonsManager.select(5, value);
               }
             },
-            title: 'Custom',
+            title: 'Custom' + customText,
             isSelected: selectedTap == 5,
           ),
         ),

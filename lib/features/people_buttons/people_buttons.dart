@@ -17,6 +17,13 @@ class PeopleButtons extends ConsumerWidget {
     final peopleButtonsManager = ref.watch(peopleButtonsManagerProvider);
     final peopleButtonsState = ref.watch(peopleButtonsStateHolderProvider);
     final selectedTab = peopleButtonsState.selectedTab;
+
+    String customText = '';
+    if (selectedTab == 5) {
+      customText += '\n';
+      customText += peopleButtonsState.people.toString();
+    }
+
     return Row(
       children: [
         ...List.generate(5, (index) {
@@ -40,7 +47,7 @@ class PeopleButtons extends ConsumerWidget {
                 peopleButtonsManager.select(5, value);
               }
             },
-            title: 'Custom',
+            title: 'Custom' + customText,
             isSelected: selectedTab == 5,
           ),
         ),

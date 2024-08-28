@@ -47,6 +47,7 @@ class MyButton extends StatelessWidget {
               style: MyFonts.h4.copyWith(
                 color: textColor,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         );
