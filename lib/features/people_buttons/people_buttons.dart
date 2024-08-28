@@ -4,6 +4,7 @@ import 'package:tipwizard/features/common/my_button.dart';
 import 'package:tipwizard/features/common/separator_extension.dart';
 import 'package:tipwizard/features/people_buttons/logic/people_buttons_manager.dart';
 import 'package:tipwizard/features/people_buttons/logic/people_buttons_state_holder.dart';
+import 'package:tipwizard/features/popup/logic/popup_manager.dart';
 
 class PeopleButtons extends ConsumerWidget {
   const PeopleButtons({super.key});
@@ -12,6 +13,7 @@ class PeopleButtons extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final popupManager = ref.watch(popupManagerProvider);
     final peopleButtonsManager = ref.watch(peopleButtonsManagerProvider);
     final peopleButtonsState = ref.watch(peopleButtonsStateHolderProvider);
     final selectedTab = peopleButtonsState.selectedTab;
@@ -28,6 +30,20 @@ class PeopleButtons extends ConsumerWidget {
             ),
           );
         }).separate<Widget>(const SizedBox(width: 6)),
+        const SizedBox(width: 6),
+        Expanded(
+          flex: 3,
+          child: MyButton(
+            onTap: () async {
+              final value = await popupManager.setWithPopup(context: context);
+              if (value != null) {
+                peopleButtonsManager.select(5, value);
+              }
+            },
+            title: 'Custom',
+            isSelected: selectedTab == 5,
+          ),
+        ),
       ],
     );
   }

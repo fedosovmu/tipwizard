@@ -7,11 +7,15 @@ class MyButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
   final bool isSelected;
+  final Color? backgroundColor;
+  final Color? textColor;
 
   const MyButton({
     required this.onTap,
     required this.title,
     this.isSelected = false,
+    this.backgroundColor,
+    this.textColor,
     super.key,
   });
 
@@ -21,7 +25,8 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       builder: (context, pressed) {
         Color borderColor = isSelected ? MyColors.blue400 : MyColors.grey200;
-        Color bgColor = isSelected ? MyColors.blue100 : MyColors.white;
+        Color bgColor =
+            isSelected ? MyColors.blue100 : (backgroundColor ?? MyColors.white);
         if (pressed) {
           bgColor = MyColors.blue300;
         }
@@ -39,7 +44,9 @@ class MyButton extends StatelessWidget {
           child: Center(
             child: Text(
               title,
-              style: MyFonts.h4,
+              style: MyFonts.h4.copyWith(
+                color: textColor,
+              ),
             ),
           ),
         );

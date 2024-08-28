@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tipwizard/features/common/my_button.dart';
 import 'package:tipwizard/features/common/separator_extension.dart';
+import 'package:tipwizard/features/popup/logic/popup_manager.dart';
 import 'package:tipwizard/features/tip_buttons/logic/tip_buttons_manager.dart';
 import 'package:tipwizard/features/tip_buttons/logic/tip_buttons_state_holder.dart';
 
@@ -12,6 +13,7 @@ class TipButtons extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final popupManager = ref.watch(popupManagerProvider);
     final tipButtonsManager = ref.watch(tipButtonsManagerProvider);
     final tipButtonsState = ref.watch(tipButtonsStateHolderProvider);
     final selectedTap = tipButtonsState.selectedTab;
@@ -27,6 +29,20 @@ class TipButtons extends ConsumerWidget {
             ),
           );
         }).separate<Widget>(const SizedBox(width: 6)),
+        const SizedBox(width: 6),
+        Expanded(
+          flex: 3,
+          child: MyButton(
+            onTap: () async {
+              final value = await popupManager.setWithPopup(context: context);
+              if (value != null) {
+                tipButtonsManager.select(5, value);
+              }
+            },
+            title: 'Custom',
+            isSelected: selectedTap == 5,
+          ),
+        ),
       ],
     );
   }
